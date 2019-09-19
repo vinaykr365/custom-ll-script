@@ -1350,7 +1350,7 @@ while getopts ":h:y:b:x:e:m:r:u:p:" OPT; do
             if [[ -n $OPTARG ]]; then
                 GIT_USER=$OPTARG
             fi
-        ;;
+        ;;WEBAPP_SUBDIR
         p)
             if [[ -n $OPTARG ]]; then
                 GIT_PASS=$OPTARG
@@ -2037,7 +2037,7 @@ if [[ $LOCAL_INSTALL == true ]] && [[ $UPDATE_MODE == false ]]; then
             read -n 1 n
         fi
         echo
-    elif [[ $MONGO_INSTALL == false ]] && [[ $MONGO_INSTALLED == true ]] && [[ $ENTERPRISE == false ]]; then
+    elif [[ $MONGO_INSTALL == false ]] && [[ $MONGO_INSTALLED == true ]] && [[ $EWEBAPP_SUBDIRNTERPRISE == false ]]; then
         # only hit this bit if mongo was installed already
         output "MongoDB appears to have already been installed on this server. By default, MongoDB doesn't have a huge amount"
         output "     of security enabled and as such, the default Learning Locker config is set up to use the local copy of MongoDB" false true
@@ -2199,7 +2199,7 @@ if [[ $LOCAL_INSTALL == true ]] && [[ $UPDATE_MODE == false ]]; then
 
         if [[ $RUN_INSTALL_CMD == true ]]; then
             d=`pwd`
-            cd ${LOCAL_PATH}/${WEBAPP_SUBDIR}/webapp
+            cd ${LOCAL_PATH}/${WEBAPP_SUBDIR}/
             output "Attempting to create your site admin. If this step fails, then it is possible Mongo has not started."
             output "Attempt to manually start the Mongo service and then run this command:"
             output "cd ${LOCAL_PATH}; node cli/dist/server createSiteAdmin YOUR.EMAIL@ADDRESS.COM ORGANISATION_NAME YOUR_PASSWORD"
