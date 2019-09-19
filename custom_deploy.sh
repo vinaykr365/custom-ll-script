@@ -1350,7 +1350,7 @@ while getopts ":h:y:b:x:e:m:r:u:p:" OPT; do
             if [[ -n $OPTARG ]]; then
                 GIT_USER=$OPTARG
             fi
-        ;;WEBAPP_SUBDIR
+        ;;
         p)
             if [[ -n $OPTARG ]]; then
                 GIT_PASS=$OPTARG
